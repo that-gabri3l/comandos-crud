@@ -31,3 +31,10 @@ INSERT INTO produtos(nome, descricao, preco, quantidade, fornecedor_id) VALUES (
 1
 );
 
+```
+
+## INSERT na tabela de lojas
+
+```sql
+INSERT INTO lojas (nome) VALUES ('Casas Bahia'),('Shopping Zona Leste'),('Bazar das Coisas'),('Americanas');
+
