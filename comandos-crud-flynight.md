@@ -37,4 +37,29 @@ INSERT INTO produtos(nome, descricao, preco, quantidade, fornecedor_id) VALUES (
 
 ```sql
 INSERT INTO lojas (nome) VALUES ('Casas Bahia'),('Shopping Zona Leste'),('Bazar das Coisas'),('Americanas');
+```
+
+## INSERT na tabela Lojas-produtos
+
+Esta é uma tabela intermediaria (tambem conhecida como **tabela pivot**), ou seja, sela se relaciona com outeas duas tabelas: **produtos** e **lojas** através de chaves estrangeiras.
+
+```sql
+INSERT INTO lojas_produtos(loja_id, produto_id, estoque) VALUES 
+(2, 1, 20);
+
+INSERT INTO lojas_produtos(loja_id, produto_id, estoque) VALUES
+(4, 2, 3);
+
+INSERT INTO lojas_produtos(loja_id, produto_id, estoque) VALUES
+(2, 3, 10);
+
+INSERT INTO lojas_produtos(loja_id, produto_id, estoque) VALUES
+(1, 1, 5);
+
+INSERT INTO lojas_produtos(loja_id, produto_id, estoque) VALUES
+(4, 1, 2);
+
+
+
+```
 
