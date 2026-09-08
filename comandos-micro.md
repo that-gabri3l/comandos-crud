@@ -56,7 +56,37 @@ INSERT INTO noticias (titulo, resumo, text_completo, imagem, destaque, usuario_i
     1,
     2
 );
-
-
-
 ```
+
+## Alteraçãoes no microblog 
+
+```sql
+--Nome de usuario
+UPDATE  usuarios SET nome = 'Pedro Silva' WHERE id = 1
+UPDATE usuarios SET nome = 'Bruna Prado' WHERE id =2
+UPDATE usuarios SET nome = 'Carlos Ronaldo' WHERE id = 3
+```
+```sql
+--Tipo de usuario
+UPDATE usuarios SET tipo_usario = 'admin' WHERE id = 1
+UPDATE usuarios SET tipo_usario = 'editor' WHERE id = 2
+
+--Categoria
+UPDATE categorias SET nome = 'Produção' WHERE id = 2
+
+--titulo da noticia 
+UPDATE noticias SET titulo = 'Ferramentas de IA nas Salas de aula' WHERE id = 1
+
+-- Destaque
+UPDATE noticias SET destaque = 'nao' WHERE id = 1
+UPDATE noticias SET destaque = 'nao' WHERE id = 3
+
+-- Categoria 
+UPDATE noticias SET categoria_id = '2' WHERE id = 3
+UPDATE noticas SET usuario_id = '2' WHERE id = 3
+```
+```sql
+DELETE FROM noticias WHERE id = 1
+DELETE FROM categorias WHERE id = 1
+DELETE FROM usuarios WHERE id = 3
+
