@@ -60,6 +60,28 @@ INSERT INTO lojas_produtos(loja_id, produto_id, estoque) VALUES
 (4, 1, 2);
 
 
+```
 
+## UPDATE na tabela forncedores
+
+```sql
+    UPDATE forncedores SET nome = 'Mundo dos Games' 
+    WHERE id = 2;
+``` 
+
+## UPDATE na tabela produtos
+
+```sql
+UPDATE produtos SET preco = 2999 , quantidade = 5 WHERE id = 3
+```
+
+## UPDATE na tabela lojas_produtos
+
+```sql
+    UPDATE lojas_produtos SET estoque = 4 WHERE loja_id = 2 AND produto_id = 1;
+
+-- AND -> E
+-- OR -> OU
+-- NOT -> NÃO
 ```
 
