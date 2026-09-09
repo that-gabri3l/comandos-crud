@@ -71,7 +71,7 @@ UPDATE usuarios SET nome = 'Carlos Ronaldo' WHERE id = 3
 UPDATE usuarios SET tipo_usario = 'admin' WHERE id = 1
 UPDATE usuarios SET tipo_usario = 'editor' WHERE id = 2
 
---Categoria
+--Categoria com outro nome
 UPDATE categorias SET nome = 'Produção' WHERE id = 2
 
 --titulo da noticia 
@@ -81,7 +81,7 @@ UPDATE noticias SET titulo = 'Ferramentas de IA nas Salas de aula' WHERE id = 1
 UPDATE noticias SET destaque = 'nao' WHERE id = 1
 UPDATE noticias SET destaque = 'nao' WHERE id = 3
 
--- Categoria 
+-- Categoria e usuario
 UPDATE noticias SET categoria_id = '2' WHERE id = 3
 UPDATE noticas SET usuario_id = '2' WHERE id = 3
 ```
