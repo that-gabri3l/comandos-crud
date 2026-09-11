@@ -26,6 +26,8 @@ SELECT * FROM noticias WHERE categoria_id = 1;
 
 -- 9. Usando <> para excluir editores do resultado
 SELECT * FROM usuarios WHERE tipo_usario <> 'editor';
+-- ou esse: utilizando o NOT  
+SELECT * FROM usuarios WHERE NOT tipo_usario = 'editor';
 
 -- 10. Duas condições simultâneas com AND
 SELECT * FROM noticias WHERE destaque = 'sim' AND categoria_id = 4;
@@ -34,7 +36,11 @@ SELECT * FROM noticias WHERE destaque = 'sim' AND categoria_id = 4;
 SELECT * FROM noticias WHERE categoria_id = 1 OR categoria_id = 9;
 
 -- 12. LIKE para procurar registros que contenham uma palavra
-SELECT * FROM noticias WHERE titulo LIKE '%brasileiro%';
+SELECT * FROM noticias WHERE 
+titulo LIKE '%brasileiro%' OR
+resumo LIKE '%brasileiro%' OR
+text_completo LIKE '%brasileiro%' OR
+imagem LIKE '%brasileiro%';
 
 -- 13. LIKE para registros que comecem com determinada letra/palavra
 SELECT * FROM usuarios WHERE nome LIKE 'C%';
@@ -54,7 +60,7 @@ SELECT COUNT(*) AS total_noticias FROM noticias;
 -- 18. Data da notícia mais antiga e da mais recente
 SELECT MIN(data_publicacao) AS mais_antiga, MAX(data_publicacao) AS mais_recente FROM noticias;
 
--- 19.  "Quais notícias em destaque, das categorias Tecnologia ou Ciência, têm 'inteligência' no título, mostrando apenas título e data renomeados, das mais novas para as mais antigas?"
+-- 19.  Quais notícias em destaque, das categorias Tecnologia ou Ciência, têm 'inteligência' no título, mostrando apenas título e data renomeados, das mais novas para as mais antigas?
 SELECT titulo AS "Título", data_publicacao AS "Data"
 FROM noticias
 WHERE destaque = 'sim'
