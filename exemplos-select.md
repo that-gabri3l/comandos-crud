@@ -306,5 +306,74 @@ FROM produtos
 
  -- Definindo a condição de cruzamento entre as tabelas
     ON produtos.fornecedor_id = fornecedores.id;
-
 ```
+
+### Apelidos (alias) para tabelas 
+Podemos usar apelidos para tornar consultas maiores mais compactas.
+
+```sql
+ SELECT 
+    p.nome AS produto,
+    p.preco,
+    f.nome AS fornecedor
+ FROM produtos AS p
+ INNER JOIN fornecedores AS f 
+    ON p.forncedor_id = f.id;
+ ```
+
+ Neste exemplo: 
+ - `p` representa a tabela `produtos`;
+ - `f` representa a tabela `fornecedores`;
+
+ **Dica:** versão ainda mais compacta omitindo o `AS`: 
+
+ ```sql
+ SELECT
+    p.nome produto,
+    p.preco,
+    f.nome fornecedor
+FROM produtos p
+INNER JOIN fornecedores f
+    ON p.fornecedor_id = f.id;
+```
+
+### JOIN com filtro
+
+Exibir somente os produtos com preço superior a R$ 1000 mostrando também o nome de seus fornecedores
+
+```sql
+SELECT
+    produtos.nome AS produto,
+    produtos.preco,
+    fornecedores.nome
+FROM produtos INNER JOIN fornecedores
+    ON produtos.fornecedor_id = fornecedores.id
+WHERE produtos.preco > 1000;
+```
+
+### Desafio: JOIN envolvendo 3 tabelas
+
+Objetivo: descobrir qual produto é vendido em qual loja e qual é seu estoque naquela loja.
+
+```sql
+
+SELECT 
+    lojas.nome AS lojas,
+    produtos.nome AS produto,
+    lojas_produtos.estoque AS estoque_da_loja
+FROM produtos
+ INNER JOIN produtos
+    ON lojas_produtos.produto_id = lojas_produtos 
+
+
+
+--IA
+SELECT
+    lojas.nome AS "Loja",
+    produtos.nome AS "Produto",
+    lojas_produtos.estoque AS "Estoque na loja"
+FROM produtos
+INNER JOIN lojas_produtos ON produtos.id = lojas_produtos.produto_id
+INNER JOIN lojas ON lojas_produtos.loja_id = lojas.id
+ORDER BY lojas.nome, produtos.nome;
+
